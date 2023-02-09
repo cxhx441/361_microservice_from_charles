@@ -43,6 +43,7 @@ def generate_scaled_dict(coordinates, max_x, max_y, max_dimension):
     return coord_dict_scaled
 
 def print_grid(max_print_dimension, formatted_coord_dict):
+    ''' origin is top-left (0, 0) '''
     # for y in range(max_print_dimension, -1, -1):
     #     for x in range(0, max_print_dimension + 1):
     for x in range(0, max_print_dimension):
