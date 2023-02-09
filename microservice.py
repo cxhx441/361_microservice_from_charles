@@ -33,8 +33,6 @@ def generate_scaled_dict(coordinates, max_x, max_y, max_dimension):
     for set_num in range(len(coordinates)):
         set_coords_scaled = []  # a list of two coordinate pairs
         for coord_pair in coordinates[set_num]:
-            # x_scaled = int(((max_dimension-1) * coord_pair[0]) / max_x)
-            # y_scaled = int(((max_dimension-1) * coord_pair[1]) / max_y)
             x_scaled = int(((max_dimension-1) * coord_pair[0]) / max(max_x, max_y))
             y_scaled = int(((max_dimension-1) * coord_pair[1]) / max(max_x, max_y))
             set_coords_scaled.append((x_scaled, y_scaled))
@@ -44,16 +42,12 @@ def generate_scaled_dict(coordinates, max_x, max_y, max_dimension):
 
 def print_grid(max_print_dimension, formatted_coord_dict):
     ''' origin is top-left (0, 0) '''
-    # for y in range(max_print_dimension, -1, -1):
-    #     for x in range(0, max_print_dimension + 1):
     for x in range(0, max_print_dimension):
         for y in range(0, max_print_dimension):
             coor_key = str(x) + "," + str(y)
             if coor_key in formatted_coord_dict:
                 obj_str = formatted_coord_dict[coor_key][1] + formatted_coord_dict[coor_key][0]
                 print(obj_str, end=" ")
-                # print(formatted_coord_dict[coor_key][1]+coor_key, end=" ")
-
             else:
                 print(f"\u001b[30m..", end=" ")
         print()
