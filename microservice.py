@@ -1,5 +1,3 @@
-# Charles' microservice for Craig
-
 def get_max_from_origin(coordinates) -> tuple:
     max_from_origin = -1
     for data_set in coordinates:
@@ -8,7 +6,7 @@ def get_max_from_origin(coordinates) -> tuple:
     print(max_from_origin)
     return max_from_origin
 
-def format_dict_for_grid(coord_dict_scaled, set1, set2):
+def format_dict_for_grid(coord_dict_scaled, set1, set2) -> dict:
     res = {}
     for set_num in range(len(coord_dict_scaled)):
         for coord_num in range(len(coord_dict_scaled[set_num])):
@@ -26,7 +24,7 @@ def format_dict_for_grid(coord_dict_scaled, set1, set2):
                 print(f"Warning: there is already an object on ({key})!")
     return res
 
-def generate_scaled_dict(coordinates, max_from_origin, max_dimension):
+def generate_scaled_dict(coordinates, max_from_origin, max_dimension) -> tuple:
     coord_dict_scaled = {}  # ex. {1:[[1,2],[3,4]], 2:[[5,6],[7,8]]}
     # why dict? It's not easy to compare coordinate pairs.
     max_x_scaled = max_y_scaled = -1
